@@ -18,18 +18,16 @@ function Messages({
 }) {
   return (
     <MessagesContainer>
-      {messages
-        ? messages.map(
-            (
-              message: { user: string; text: string },
-              i: string | number | undefined
-            ) => (
-              <div key={i}>
-                <Message message={message} />
-              </div>
-            )
-          )
-        : null}
+      {messages.map(
+        (
+          message: { user: string; text: string },
+          i: string | number | undefined
+        ) => (
+          <div key={i}>
+            <Message message={message} />
+          </div>
+        )
+      )}
     </MessagesContainer>
   );
 }

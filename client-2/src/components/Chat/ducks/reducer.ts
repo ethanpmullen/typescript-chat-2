@@ -1,7 +1,6 @@
 interface IChat {
   name: string;
   room: string;
-  currentMessage: string;
   messages: { user: string; text: string }[];
 }
 
@@ -15,7 +14,6 @@ interface IAction {
 const initialState: IChat = {
   name: "",
   room: "",
-  currentMessage: "",
   messages: [],
 };
 
@@ -32,11 +30,6 @@ export default function chatReducer(state = initialState, action: IAction) {
         ...state,
         name: payload ? payload.name : state.name,
         room: payload ? payload.room : state.room,
-      };
-    case "CURRENT_MESSAGE_SET":
-      return {
-        ...state,
-        currentMessage: payload ? payload.updatedMessage : null,
       };
     default:
       return state;

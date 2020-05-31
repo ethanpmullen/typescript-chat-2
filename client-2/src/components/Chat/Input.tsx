@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { RootStateOrAny, connect } from "react-redux";
-import { doSendMessage } from "./ducks/actions";
 import io from "socket.io-client";
 
 function Input({ socket }: { socket: SocketIOClient.Socket }) {
   const [currentMessage, setCurrentMessage] = useState("");
 
-  const sendMessage = (event: any) => {
+  const sendMessage = (event: React.KeyboardEvent<HTMLInputElement>) => {
     event.preventDefault();
 
     if (currentMessage) {
